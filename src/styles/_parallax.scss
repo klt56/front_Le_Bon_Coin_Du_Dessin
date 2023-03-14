@@ -1,0 +1,16 @@
+.parallax-container {
+    width: 500px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+}
+
+.parallax-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(58, 21, 196);
+    font-size: 36px;
+    font-weight: bold;
+}
