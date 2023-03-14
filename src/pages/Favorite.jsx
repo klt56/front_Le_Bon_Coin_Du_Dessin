@@ -24,8 +24,7 @@ const Favorite = () => {
       <div
         style={{ backgroundImage: 'url(' + character.url + ')' }}
         className='card'
-        key={character.name}
-      >
+        key={character.name}>
         <h3>{character.name}</h3>
       </div>
     );
@@ -33,8 +32,7 @@ const Favorite = () => {
     return null;
   }
 })}
-
-      </div>
+    </div>
     </section>
   );
 };

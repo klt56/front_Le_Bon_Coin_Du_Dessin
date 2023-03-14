@@ -1,14 +1,14 @@
-import React, { useState, useMemo, useRef } from 'react'
-import TinderCard from 'react-tinder-card'
-import { Link } from 'react-router-dom';
-import { db } from './Data';
+import React, { useState, useMemo, useRef } from "react";
+import TinderCard from "react-tinder-card";
+import { Link } from "react-router-dom";
+import { db } from "./Data";
 
 const Tinder = () => {
-    const [currentIndex, setCurrentIndex] = useState(db.length - 1)
-  const [lastDirection, setLastDirection] = useState()
+  const [currentIndex, setCurrentIndex] = useState(db.length - 1);
+  const [lastDirection, setLastDirection] = useState();
   const [favorites, setFavorites] = useState([]);
 
-  const currentIndexRef = useRef(currentIndex)
+  const currentIndexRef = useRef(currentIndex);
 
   const childRefs = useMemo(
     () =>
@@ -16,102 +16,107 @@ const Tinder = () => {
         .fill(0)
         .map((i) => React.createRef()),
     []
-  )
+  );
 
   const updateCurrentIndex = (val) => {
-    setCurrentIndex(val)
-    currentIndexRef.current = val
-  }
+    setCurrentIndex(val);
+    currentIndexRef.current = val;
+  };
 
-  const canGoBack = currentIndex < db.length - 1
+  const canGoBack = currentIndex < db.length - 1;
 
-  const canSwipe = currentIndex >= 0
+  const canSwipe = currentIndex >= 0;
 
   const updateLocalStorage = (newFavorites) => {
-    localStorage.setItem('favorites', JSON.stringify(newFavorites));
+    localStorage.setItem("favorites", JSON.stringify(newFavorites));
   };
-  
+
   const swiped = (direction, nameToDelete, index) => {
     console.log(`Swiped ${nameToDelete} (${index}), direction: ${direction}`);
     setLastDirection(direction);
     updateCurrentIndex(index - 1);
-    if (direction === 'right') {
+    if (direction === "right") {
       const newFavorites = [...favorites];
-      newFavorites[index] = { ...db[currentIndex], swiped: 'right' };
-      console.log('Adding to favorites:', newFavorites[index]);
+      newFavorites[index] = { ...db[currentIndex], swiped: "right" };
+      console.log("Adding to favorites:", newFavorites[index]);
       setFavorites(newFavorites);
       updateLocalStorage(newFavorites); // Mettre à jour le localStorage
     }
   };
-  
-
-  
-
 
   const outOfFrame = (name, idx) => {
-    console.log(`${name} (${idx}) left the screen!`, currentIndexRef.current)
-   
-    currentIndexRef.current >= idx && childRefs[idx].current.restoreCard()
-   
-  }
+    console.log(`${name} (${idx}) left the screen!`, currentIndexRef.current);
+
+    currentIndexRef.current >= idx && childRefs[idx].current.restoreCard();
+  };
 
   const swipe = async (dir) => {
     if (canSwipe && currentIndex < db.length) {
-      await childRefs[currentIndex].current.swipe(dir) 
+      await childRefs[currentIndex].current.swipe(dir);
     }
-  }
+  };
 
   const goBack = async () => {
-    if (!canGoBack) return
-    const newIndex = currentIndex + 1
-    updateCurrentIndex(newIndex)
-    await childRefs[newIndex].current.restoreCard()
-  }
+    if (!canGoBack) return;
+    const newIndex = currentIndex + 1;
+    updateCurrentIndex(newIndex);
+    await childRefs[newIndex].current.restoreCard();
+  };
 
   return (
+    <section className="tinder-card">
+      <div>
+        <h1>Leboncoin du dessin</h1>
+        <div className="cardContainer">
+          {db.map((character, index) => (
+            <TinderCard
+              ref={childRefs[index]}
+              className="swipe"
+              key={character.name}
+              onSwipe={(dir) => swiped(dir, character.name, index)}
+              onCardLeftScreen={() => outOfFrame(character.name, index)}
+            >
+              <div
+                style={{ backgroundImage: "url(" + character.url + ")" }}
+                className="card"
+              >
+                <h3>{character.name}</h3>
+              </div>
+            </TinderCard>
+          ))}
+        </div>
 
-    <section className='tinder-card'>
-    <div>
-      
-      <h1>Leboncoin du dessin</h1>
-      <div 
-      className='cardContainer'>
-        {db.map((character, index) => (
-          <TinderCard
-            ref={childRefs[index]}
-            className='swipe'
-            key={character.name}
-            onSwipe={(dir) => swiped(dir, character.name, index)}
-            onCardLeftScreen={() => outOfFrame(character.name, index)} >
-            <div
-              style={{ backgroundImage: 'url(' + character.url + ')' }}
-              className='card'>
-              <h3>{character.name}</h3>
-            </div>
-          </TinderCard>
-        ))}
+        <div className="buttons">
+          <button
+            style={{ backgroundColor: !canSwipe && "#c3c4d3" }}
+            onClick={() => swipe("left")}
+          >
+            Pas intéréssé
+          </button>
+          <button
+            style={{ backgroundColor: !canGoBack && "#c3c4d3" }}
+            onClick={() => goBack()}
+          >
+            Revenir en arriere
+          </button>
+          <button
+            style={{ backgroundColor: !canSwipe && "#c3c4d3" }}
+            onClick={() => swipe("right")}
+          >
+            intéréssé
+          </button>
+        </div>
+        {lastDirection ? (
+          <h2 key={lastDirection} className="infoText">
+            You swiped {lastDirection}
+          </h2>
+        ) : (
+          <h2 className="infoText">Faite glissé ou appuyer sur les boutons</h2>
+        )}
+        <Link to="/favorites">Mes favoris</Link>
       </div>
-
-      <div 
-      className='buttons'>
-        <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('left')}>Pas intéréssé</button>
-        <button style={{ backgroundColor: !canGoBack && '#c3c4d3' }} onClick={() => goBack()}>Revenir en arriere</button>
-        <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('right')}>intéréssé</button>
-      </div>
-      {lastDirection ? (
-        <h2 
-        key={lastDirection} 
-        className='infoText'>
-          You swiped {lastDirection}
-        </h2>) : ( <h2 
-        className='infoText'>
-          Faite glissé ou appuyer sur les boutons 
-        </h2>
-      )}
-      <Link to="/favorites">Mes favoris</Link>
-    </div>
     </section>
-  )
+  );
 };
 
 export default Tinder;
