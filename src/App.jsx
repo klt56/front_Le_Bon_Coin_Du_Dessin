@@ -1,4 +1,3 @@
-
 import React from 'react';
 import IndexRoutes from './routes/IndexRoutes';
 
