@@ -50,6 +50,8 @@ const Navbar = () => {
 
       <Link to="/favorites" onClick={showNavbar}>Mes favoris</Link>
 
+      <Link to="/new-art" onClick={showNavbar}>Ajouter un dessin</Link> 
+      
       <button className='nav-btn nav-close-btn' onClick={showNavbar}>
 
        <FaTimes />

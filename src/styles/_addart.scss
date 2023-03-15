@@ -1,0 +1,17 @@
+.art-container {
+    width: 500px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgb(24, 209, 64);
+}
+
+.art-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(16, 216, 76);
+    font-size: 36px;
+    font-weight: bold;
+}
