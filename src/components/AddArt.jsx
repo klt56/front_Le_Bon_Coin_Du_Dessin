@@ -22,7 +22,7 @@ function AddArt({ userId }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post(`http://localhost:3000/posts`, {
+      await axios.post(`https://starfish-app-3xk6j.ondigitalocean.app/posts`, {
         title,
         description,
         artist,

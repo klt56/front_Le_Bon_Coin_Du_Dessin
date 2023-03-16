@@ -4,13 +4,14 @@ import Home from '../pages/Home';
 import Register from '../components/Form/Register';
 import Login from '../components/Form/Login';
 import NotFound from '../pages/NotFound';
-import AddArt from '../components/AddArt';
 import NewArt from '../pages/NewArt';
+import Navbar from '../components/Navbar';
 
 
 const IndexRoutes = () => {
   return (
     <BrowserRouter>
+    <Navbar /> 
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/favorites" element={<Favorite />} />
