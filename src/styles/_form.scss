@@ -39,7 +39,7 @@
     border-bottom: 2px solid #fff;
   }
   
-  .inputbox label {
+  .inputbox__label {
     position: absolute;
     top: 50%;
     left: 5px;
@@ -66,28 +66,8 @@
     color: #fff;
   }
   
-  input::-webkit-input-placeholder {
-    /* Edge */
-    color: #fff;
-    opacity: 0.8;
-  }
   
-  input:-ms-input-placeholder {
-    /* Internet Explorer */
-    color: #fff;
-    opacity: 0.8;
-  }
-  
-  input::placeholder {
-    color: #fff;
-    opacity: 0.8;
-  }
-  
-  .error-message {
-    color: red;
-    font-size: 0.8em;
-    margin-top: 5px;
-  }
+
   
   .checkbox-container {
     display: flex;
@@ -99,7 +79,7 @@
     margin-right: 10px;
   }
   
-  button[type='submit'] {
+  .form__button[type='submit'] {
     width: 100%;
     height: 40px;
     border-radius: 40px;
@@ -110,6 +90,10 @@
     font-size: 1em;
     font-weight: 600;
     margin-top: 30px;
+  }
+
+  .input[type='placeholder'] {
+    color: #fff;
   }
   
   .register {
