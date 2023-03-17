@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Favorite from '../pages/Favorite';
+import FavoriteDetails from '../pages/FavoriteDetails';
 import Home from '../pages/Home';
 import Register from '../components/Form/Register';
 import Login from '../components/Form/Login';
@@ -15,6 +16,7 @@ const IndexRoutes = () => {
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/favorites" element={<Favorite />} />
+            <Route path="/favorites/:id" element={<FavoriteDetails />} />
             <Route path="/signup" element={<Register />} />
              <Route path="/login" element={<Login />} />
              <Route path="/new-art" element={<NewArt />} />
