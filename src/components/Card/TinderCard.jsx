@@ -68,19 +68,19 @@ const Tinder = () => {
       <div>
         <h1>Leboncoin du dessin</h1>
         <div className="cardContainer">
-          {db.map((character, index) => (
+          {db.map((artwork, index) => (
             <TinderCard
               ref={childRefs[index]}
               className="swipe"
-              key={character.name}
-              onSwipe={(dir) => swiped(dir, character.name, index)}
-              onCardLeftScreen={() => outOfFrame(character.name, index)}
+              key={artwork.name}
+              onSwipe={(dir) => swiped(dir, artwork.name, index)}
+              onCardLeftScreen={() => outOfFrame(artwork.name, index)}
             >
               <div
-                style={{ backgroundImage: "url(" + character.url + ")" }}
+                style={{ backgroundImage: "url(" + artwork.url + ")" }}
                 className="card"
               >
-                <h3>{character.name}</h3>
+                <h3>{artwork.name}</h3>
               </div>
             </TinderCard>
           ))}
