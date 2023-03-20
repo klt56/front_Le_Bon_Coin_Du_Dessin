@@ -15,7 +15,6 @@ function AddArt({ userId }) {
   const [description, setDescription] = useState("");
   const [artist, setArtist] = useState("");
   const [image, setImage] = useState("");
-  const [price, setPrice] = useState(0);
   const [category, setCategory] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
@@ -27,7 +26,6 @@ function AddArt({ userId }) {
         description,
         artist,
         image,
-        price,
         category,
       });
       alert("Oeuvre d'art ajoutée avec succès!");
@@ -35,7 +33,6 @@ function AddArt({ userId }) {
       setDescription("");
       setArtist("");
       setImage("");
-      setPrice(0);
       setCategory("");
       setIsOpen(false);
     } catch (error) {
@@ -87,25 +84,10 @@ function AddArt({ userId }) {
                   required
                 />
               </label>
-              <label>
-                Image URL:
-                <input
-                  type="text"
-                  value={image}
-                  onChange={(event) => setImage(event.target.value)}
-                  required
-                />
-              </label>
-              <label>
-                Prix:
-                <input
-                  type="number"
-                  value={price}
-                  onChange={(event) => setPrice(event.target.value)}
-                  required
-                />
-              </label>
-              <label>
+              <label htmlFor="image">Image</label>
+        <input type="file" name="image" id="image"
+               />
+             <label>
                 Catégorie:
                 <input
                   type="text"

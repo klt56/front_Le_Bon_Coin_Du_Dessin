@@ -7,14 +7,14 @@ import { Link } from 'react-router-dom';
 import '../styles/navbar.scss';
 
 
-  
-  
+
+
 
 const Navbar = () => {
 
  const navRef = useRef();
 
-  
+
 
  const showNavbar = () => {
 
@@ -22,7 +22,7 @@ const Navbar = () => {
 
    };
 
-  
+
 
  return (
 
@@ -50,8 +50,8 @@ const Navbar = () => {
 
       <Link to="/favorites" onClick={showNavbar}>Mes favoris</Link>
 
-      <Link to="/new-art" onClick={showNavbar}>Ajouter un dessin</Link> 
-      
+      <Link to="/new-art" onClick={showNavbar}>Ajouter un dessin</Link>
+
       <button className='nav-btn nav-close-btn' onClick={showNavbar}>
 
        <FaTimes />
@@ -72,6 +72,6 @@ const Navbar = () => {
 
 };
 
-  
+
 
 export default Navbar;
