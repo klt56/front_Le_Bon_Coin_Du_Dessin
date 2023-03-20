@@ -1,6 +1,5 @@
 import React, { useState, useMemo, useRef } from "react";
 import TinderCard from "react-tinder-card";
-import { Link } from "react-router-dom";
 import { db } from "./Data";
 
 const Tinder = () => {
@@ -113,7 +112,7 @@ const Tinder = () => {
         ) : (
           <h2 className="infoText">Faite glissé ou appuyer sur les boutons</h2>
         )}
-        <Link to="/favorites">Mes favoris</Link>
+       
       </div>
     </section>
   );

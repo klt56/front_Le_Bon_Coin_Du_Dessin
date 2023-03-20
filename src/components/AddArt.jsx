@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import {
   Button,
   Modal,
@@ -88,9 +89,9 @@ function AddArt({ userId }) {
                 />
               </label>
               <label>
-                Image URL:
+                Oeuvre:
                 <input
-                  type="text"
+                  type="file"
                   value={image}
                   onChange={(event) => setImage(event.target.value)}
                   required
