@@ -1,11 +1,11 @@
 import Footer from '../components/Footer'
 import Tinder from '../components/Card/TinderCard';
-import Paralax from '../components/Paralax';
-import Paralax2 from '../components/Paralax2';
-import Paralax3 from '../components/Paralax3';
-import Text from '../components/Text';
-import Text2 from '../components/Text2';
-import Text3 from '../components/Text3';
+import Paralax from '../components/Parallax/Paralax';
+import Paralax2 from '../components/Parallax/Paralax2';
+import Paralax3 from '../components/Parallax/Paralax3';
+import Text from '../components/Parallax/Text';
+import Text2 from '../components/Parallax/Text2';
+import Text3 from '../components/Parallax/Text3';
 
 
 const Home = () => {
