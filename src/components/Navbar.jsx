@@ -48,7 +48,9 @@ const Navbar = () => {
 
       <Link to="/favorites" onClick={showNavbar}>Mes favoris</Link>
 
-      <Link to="/new-art" onClick={showNavbar}>Ajouter un dessin</Link> 
+      <Link to="/new-art" onClick={showNavbar}>Ajouter un dessin</Link>
+
+      <Link to="/filtered-list" onClick={showNavbar}>Liste filtrée</Link> 
       
       <button className='nav-btn nav-close-btn' onClick={showNavbar}>
 
