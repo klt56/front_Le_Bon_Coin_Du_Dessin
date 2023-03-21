@@ -1,7 +1,7 @@
 import React from 'react';
 import { Parallax } from 'react-parallax';
-import '../styles/_parallax.scss';
-import Femme from './img/femme.jpg'
+import Femme from "../../assets/femme.jpg";
+
 
 const Paralax2 = () => (
     <div className='parallax-container'>

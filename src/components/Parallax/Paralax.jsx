@@ -1,7 +1,7 @@
 import React from 'react';
 import { Parallax } from 'react-parallax';
-import '../styles/_parallax.scss';
-import Fleur from './img/fleurs.jpg';
+import Fleur from '../../assets/fleurs.jpg';
+
 
 
 const Paralax = () => (
