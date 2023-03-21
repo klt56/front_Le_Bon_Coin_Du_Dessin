@@ -65,7 +65,6 @@ const Tinder = () => {
   return (
     <section className="tinder-card">
       <div>
-        <h1>Leboncoin du dessin</h1>
         <div className="cardContainer">
           {db.map((artwork, index) => (
             <TinderCard
