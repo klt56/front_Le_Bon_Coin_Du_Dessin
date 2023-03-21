@@ -1,8 +1,4 @@
-import React from 'react';
 
-import '../styles/footer.scss';
-
-  
 
 const Footer = () => {
 
@@ -32,7 +28,7 @@ const Footer = () => {
 
                               <a href="https://github.com/klt56/final-project2"> Back</a>
 
-  
+
 
                         </div>
 
@@ -82,6 +78,6 @@ const Footer = () => {
 
 }
 
-  
+
 
 export default Footer;

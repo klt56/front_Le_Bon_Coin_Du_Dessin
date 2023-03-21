@@ -4,8 +4,6 @@ import { FaBars, FaTimes, FaPencilAlt } from "react-icons/fa";
 
 import { Link } from 'react-router-dom';
 
-import '../styles/navbar.scss';
-
 
   
   
