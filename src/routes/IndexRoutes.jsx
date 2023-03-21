@@ -7,6 +7,7 @@ import Login from '../components/Form/Login';
 import NotFound from '../pages/NotFound';
 import NewArt from '../pages/NewArt';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import FilteredListPage from '../pages/FilteredListPage';
 
 
@@ -24,6 +25,7 @@ const IndexRoutes = () => {
             < Route path="/filtered-list" element={<FilteredListPage />} />
              <Route path="*" element={<NotFound/>} />
         </Routes>
+        <Footer />
     </BrowserRouter>
     
   );
