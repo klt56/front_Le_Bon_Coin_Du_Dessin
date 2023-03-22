@@ -1,6 +1,5 @@
 import React, { useState, useMemo, useRef } from "react";
 import TinderCard from "react-tinder-card";
-import { Link } from "react-router-dom";
 import { db } from "./Data";
 
 const Tinder = () => {
@@ -66,21 +65,20 @@ const Tinder = () => {
   return (
     <section className="tinder-card">
       <div>
-        <h1>Leboncoin du dessin</h1>
         <div className="cardContainer">
-          {db.map((character, index) => (
+          {db.map((artwork, index) => (
             <TinderCard
               ref={childRefs[index]}
               className="swipe"
-              key={character.name}
-              onSwipe={(dir) => swiped(dir, character.name, index)}
-              onCardLeftScreen={() => outOfFrame(character.name, index)}
+              key={artwork.name}
+              onSwipe={(dir) => swiped(dir, artwork.name, index)}
+              onCardLeftScreen={() => outOfFrame(artwork.name, index)}
             >
               <div
-                style={{ backgroundImage: "url(" + character.url + ")" }}
+                style={{ backgroundImage: "url(" + artwork.url + ")" }}
                 className="card"
               >
-                <h3>{character.name}</h3>
+                <h3>{artwork.name}</h3>
               </div>
             </TinderCard>
           ))}
@@ -113,7 +111,7 @@ const Tinder = () => {
         ) : (
           <h2 className="infoText">Faite glissé ou appuyer sur les boutons</h2>
         )}
-        <Link to="/favorites">Mes favoris</Link>
+       
       </div>
     </section>
   );

@@ -1,8 +1,4 @@
-import React from 'react';
 
-import '../styles/footer.scss';
-
-  
 
 const Footer = () => {
 
@@ -30,9 +26,9 @@ const Footer = () => {
 
                               <a href='https://github.com/anthonymiloradovic/leboncoin-dessins-frontend'> Front</a>
 
-                              <a href="https://github.com/klt56/final-project"> Back</a>
+                              <a href="https://github.com/klt56/final-project2"> Back</a>
 
-  
+
 
                         </div>
 
@@ -40,9 +36,9 @@ const Footer = () => {
 
                               <h4>Communauté Github</h4>
 
-                              <a href='https://github.com/Sarahmela93'> Sarah</a>
-
                               <a href='https://github.com/anthonymiloradovic'> Anthony</a>
+
+                              <a href='https://github.com/Sarahmela93'> Sarah</a>
 
                               <a href='https://github.com/klt56'> Kevin</a>
 
@@ -82,6 +78,6 @@ const Footer = () => {
 
 }
 
-  
+
 
 export default Footer;

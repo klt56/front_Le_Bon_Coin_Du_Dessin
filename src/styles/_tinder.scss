@@ -2,19 +2,22 @@
   text-align: center;
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100vw;
   overflow: hidden;
   background: linear-gradient(#3717ac, #9198e5);
-}
-
-.swipe {
-  position: absolute;
+  height: 100vh;
+  max-width: 100%;
 }
 
 .cardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 90vw;
-  max-width: 260px;
+  max-width: 560px;
   height: 300px;
+  margin: 0 auto;
 }
 
 .card {
@@ -27,6 +30,11 @@
   background-size: cover;
   background-position: center;
 }
+.swipe {
+  position: absolute;
+}
+
+
 
 .cardContent {
   width: 100%;

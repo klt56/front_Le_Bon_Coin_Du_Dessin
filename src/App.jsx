@@ -1,9 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import IndexRoutes from './routes/IndexRoutes';
+
 import { UidContext } from './Routes/AppContext';
 import axios from 'axios';
 import { createRoot } from 'react-dom/client';
 import Cookies from 'js-cookie';
+
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+
+const theme = extendTheme({
+  colors: {
+    brand: {
+      100: "#f7fafc",
+      900: "#1a202c",
+    },
+  },
+
+});
+
 
 const App = () => {
   const [uid, setUid] = useState(null);
@@ -29,9 +43,16 @@ const App = () => {
   }, []);
 
   return (
+
     <UidContext.Provider value={uid}>
       <IndexRoutes />
     </UidContext.Provider>
+    <div>
+       <ChakraProvider theme={theme}>
+      <IndexRoutes />
+      </ChakraProvider>
+    </div>
+
   );
 };
 

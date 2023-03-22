@@ -1,15 +1,21 @@
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
 import Tinder from '../components/Card/TinderCard';
-import Parallax from '../components/Parallax';
+import Paralax from '../components/Parallax/Paralax';
+import Paralax2 from '../components/Parallax/Paralax2';
+import Text from '../components/Parallax/Text';
+import Text2 from '../components/Parallax/Text2';
+
+
 
 const Home = () => {
     return (
-        <div>
-            <Navbar />
-            <Parallax />
-            <Tinder />
-            <Footer/>
+    <div>
+    <Paralax />
+    <Text/>
+    <Paralax2 />
+    <Text2/>
+   
+    <Tinder />
+  
         </div>
     );
 };

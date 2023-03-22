@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Favorite = () => {
   const [favorites, setFavorites] = useState([]);
@@ -18,15 +19,18 @@ const Favorite = () => {
       <h1>Mes favoris</h1>
       <button onClick={clearLocalStorage}>Supprimer tous les favoris</button>
       <div className='cardContainer'>
-      {favorites.map((character) => {
-  if (character && character.swiped === 'right') {
+      {favorites.map((artwork) => {
+  if (artwork && artwork.swiped === 'right') {
     return (
-      <div
-        style={{ backgroundImage: 'url(' + character.url + ')' }}
-        className='card'
-        key={character.name}>
-        <h3>{character.name}</h3>
-      </div>
+      <Link to={`/favorites/${artwork.id}`} key={artwork.id}>
+                <div
+                  style={{ backgroundImage: 'url(' + artwork.url + ')' }}
+                  className='card'
+                  key={artwork.name}>
+                  <h3>{artwork.name}</h3>
+                  <button>Voir plus</button>
+                </div>
+              </Link>
     );
   } else {
     return null;
