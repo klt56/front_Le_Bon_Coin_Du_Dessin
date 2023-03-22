@@ -1,4 +1,4 @@
-
+import Cookies from "js-cookie";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useFetch from "../../../tools/useFetch";
@@ -41,7 +41,7 @@ export default function SignUp() {
 
     Cookies.set("user_token", token);
 
-    navigate("/");
+    navigate("/sign_in1");
   }
 
   return (

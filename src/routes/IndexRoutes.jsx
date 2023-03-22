@@ -9,6 +9,8 @@ import Test1$ from '../pages/Test1$';
 import SignIn from '../components/User/Forms/SignIn';
 import SignUp from '../components/User/Forms/SignUp';
 
+
+
 const IndexRoutes = () => {
   return (
     <BrowserRouter>
@@ -21,6 +23,7 @@ const IndexRoutes = () => {
              <Route path="sign_in1" element={<SignIn />} />
           <Route path="sign_up1" element={<SignUp />} />
              <Route path="/test1$" element={<Test1$ />} />
+
 
 
              <Route path="*" element={<NotFound/>} />

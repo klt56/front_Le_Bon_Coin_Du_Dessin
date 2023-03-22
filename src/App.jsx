@@ -3,6 +3,7 @@ import IndexRoutes from './routes/IndexRoutes';
 import { UidContext } from './Routes/AppContext';
 import axios from 'axios';
 import { createRoot } from 'react-dom/client';
+import Cookies from 'js-cookie';
 
 const App = () => {
   const [uid, setUid] = useState(null);
@@ -13,7 +14,10 @@ const App = () => {
         const res = await axios({
           method: "GET",
           url: "http://localhost:3000/member-data",
-          withCredentials: true
+
+          headers: {
+            'Authorization':Cookies.get('user_token')
+          }
         });
         console.log(res);
         setUid(res.data.user);

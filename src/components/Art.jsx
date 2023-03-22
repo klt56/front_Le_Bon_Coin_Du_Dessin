@@ -3,37 +3,30 @@ import { AppContext } from '../pages/Test1$';
 
 function Art() {
   const { Post, setPost } = useContext(AppContext);
-  const [Info, setInfo] = useState({ title: "", description: "", category: "",artist: "" });
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:3000/posts")
       .then((response) => response.json())
       .then((data) => {
-        setPost(data.image_url);
-        setInfo({
-            title: data.title,
-            description: data.description,
-            category: data.category,
-            artist: data.artist
-                                       });
+        console.log(data)
+        setPosts(data);
+        setPost(data[0].image_url);
       })
       .catch((error) => console.error(error));
   }, []);
 
   return (
-
-
-
-
-
-
     <div>
-      <h2>{Info.title}</h2>
-      <p>{Info.description}</p>
-      <h3>{Info.category}</h3>
-      <h3>{Info.artist}</h3>
-      <img src={Post} alt="post" className="image"/>
-
+      {posts.map((post) => (
+        <div key={post.id}>
+          <h2>{post.title}</h2>
+          <p>{post.description}</p>
+          <h3>{post.category}</h3>
+          <h3>{post.artist}</h3>
+          <img src={post.image_url} alt="post" className="image"/>
+        </div>
+      ))}
     </div>
   )
 }

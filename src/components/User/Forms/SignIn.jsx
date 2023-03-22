@@ -1,4 +1,4 @@
-
+import Cookies from "js-cookie";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useFetch from "../../../tools/useFetch";
