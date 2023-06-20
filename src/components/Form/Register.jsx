@@ -23,7 +23,7 @@ function Register() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post(`https://starfish-app-3xk6j.ondigitalocean.app/users/`, {
+      await axios.post(`http://localhost:3000/users`, {
         user: {
           first_name: firstName,
           email: email,

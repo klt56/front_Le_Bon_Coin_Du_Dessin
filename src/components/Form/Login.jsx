@@ -18,7 +18,7 @@ const handleSubmit = async (e) => {
 e.preventDefault();
 try {
 const response = await axios.post(
-'https://starfish-app-3xk6j.ondigitalocean.app/authenticate',
+'https://3000/sign_in',
 {
 email,
 password,

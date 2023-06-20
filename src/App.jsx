@@ -44,15 +44,13 @@ const App = () => {
 
   return (
 
-    <UidContext.Provider value={uid}>
-      <IndexRoutes />
-    </UidContext.Provider>
-    <div>
-       <ChakraProvider theme={theme}>
-      <IndexRoutes />
-      </ChakraProvider>
+<div>
+      <UidContext.Provider value={uid}>
+        <ChakraProvider theme={theme}>
+          <IndexRoutes />
+        </ChakraProvider>
+      </UidContext.Provider>
     </div>
-
   );
 };
 
